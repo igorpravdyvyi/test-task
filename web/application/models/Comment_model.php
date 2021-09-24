@@ -13,7 +13,7 @@ use System\Emerald\Emerald_model;
  * Date: 27.01.2020
  * Time: 10:10
  */
-class Comment_model extends Emerald_Model {
+class Comment_model extends Emerald_Model implements LikeableInterface {
     const CLASS_TABLE = 'comment';
 
 
@@ -291,5 +291,12 @@ class Comment_model extends Emerald_Model {
 
         return $o;
     }
-
+    
+    /**
+     * @return void
+     */
+    public function like(): void
+    {
+        $this->set_likes($this->get_likes() + 1);
+    }
 }

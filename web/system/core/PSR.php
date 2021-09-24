@@ -8,7 +8,9 @@ $psr_config = [
     'Model' => APPPATH . 'models',
     'Library' => APPPATH . 'libraries',
     'Core' => APPPATH . 'core',
-    'System' => rtrim(BASEPATH, DIRECTORY_SEPARATOR)
+    'System' => rtrim(BASEPATH, DIRECTORY_SEPARATOR),
+    'Repositories' => APPPATH . 'repositories',
+    'Service' => APPPATH . 'service',
 ];
 
 spl_autoload_register(function ($class) use ($psr_config) {

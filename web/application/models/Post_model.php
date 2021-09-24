@@ -11,7 +11,7 @@ use System\Emerald\Emerald_model;
  * Date: 27.01.2020
  * Time: 10:10
  */
-class Post_model extends Emerald_Model
+class Post_model extends Emerald_Model implements LikeableInterface
 {
     const CLASS_TABLE = 'post';
 
@@ -207,17 +207,6 @@ class Post_model extends Emerald_Model
         return static::transform_many(App::get_s()->from(self::CLASS_TABLE)->many());
     }
 
-    /**
-     * @param User_model $user
-     *
-     * @return bool
-     * @throws Exception
-     */
-    public function increment_likes(User_model $user): bool
-    {
-        // TODO: task 3, лайк поста
-    }
-
 
     /**
      * @param Post_model $data
@@ -282,5 +271,13 @@ class Post_model extends Emerald_Model
         $o->time_updated = $data->get_time_updated();
 
         return $o;
+    }
+    
+    /**
+     * @return void
+     */
+    public function like(): void
+    {
+        $this->set_likes($this->get_likes() + 1);
     }
 }

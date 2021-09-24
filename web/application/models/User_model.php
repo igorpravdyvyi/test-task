@@ -144,9 +144,16 @@ class User_model extends Emerald_model {
     {
         return $this->likes_balance;
     }
-
+    
+    /**
+     * @throws \ShadowIgniterException
+     */
     public function set_likes_balance($likes_balance):bool
     {
+        if ($this->get_likes_balance() <= 0) {
+            throw new Exception('Refill your likes balance');
+        }
+        
         $this->likes_balance = $likes_balance;
         return $this->save('likes_balance', $likes_balance);
     }
@@ -337,16 +344,6 @@ class User_model extends Emerald_model {
     public static function get_all(): array
     {
         return static::transform_many(App::get_s()->from(self::CLASS_TABLE)->many());
-    }
-
-    /**
-     * @param string $email
-     *
-     * @return User_model
-     */
-    public static function find_user_by_email(string $email): User_model
-    {
-        // TODO: task 1, аутентификация
     }
 
     /**

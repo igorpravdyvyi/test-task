@@ -43,41 +43,6 @@ class Main_page extends MY_Controller
         return $this->response_success(['boosterpacks' => $posts]);
     }
 
-    public function login()
-    {
-        // TODO: task 1, аутентификация
-
-        return $this->response_success();
-    }
-
-    public function logout()
-    {
-        // TODO: task 1, аутентификация
-    }
-
-    public function comment()
-    {
-        // TODO: task 2, комментирование
-    }
-
-    public function like_comment(int $comment_id)
-    {
-        // TODO: task 3, лайк комментария
-    }
-
-    public function like_post(int $post_id)
-    {
-        // TODO: task 3, лайк поста
-    }
-
-    public function add_money()
-    {
-        // TODO: task 4, пополнение баланса
-
-        $sum = (float)App::get_ci()->input->post('sum');
-
-    }
-
     public function get_post(int $post_id) {
         // TODO получения поста по id
     }

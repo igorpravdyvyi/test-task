@@ -55,7 +55,12 @@ $route['default_controller'] = 'main_page';
 $route['404_override'] = 'api/error_404';
 $route['404'] = 'api/error_404';
 $route['error'] = 'api/error';
-$route['login/']['POST'] = 'Login_controller/login';
+$route['main_page/login']['POST'] = 'Authorization_controller/login';
+$route['main_page/logout']['POST'] = 'Authorization_controller/logout';
+$route['main_page/comment']['POST'] = 'Comment_controller/create';
+$route['main_page/like']['POST'] = 'Like_controller/create';
+$route['main_page/add_money']['POST'] = 'Money_controller/add_money';
+$route['main_page/exchange_money']['POST'] = 'Money_controller/exchange_money';
 
 
 $route['translate_uri_dashes'] = FALSE;
